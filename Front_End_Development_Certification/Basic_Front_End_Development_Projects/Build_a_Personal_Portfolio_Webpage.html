@@ -1,0 +1,300 @@
+<!-- https://codepen.io/81YE35/full/geaYvW/ -->
+
+<style>
+body {
+  background-color: #808080;
+  position: relative;
+}
+img {
+  max-height: 99%;
+  max-width: 99%;
+  padding: 20px;
+}
+.center_mar {
+  margin:0 auto;
+}
+.navbar {
+  background: #800080;
+}
+.jumbotron {
+  margin: 0px auto 0px;
+  max-width: 1000px;
+  padding-bottom: 0px;
+}
+.container {
+  padding-top: 20px;
+}
+.ABOUT_DIV_CEN {
+  height: inherit;
+  text-align: center;
+  font-size: 0;
+}
+.ABOUT_DIV_CEN:before {
+  content: "";
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+.ABOUT_DIV_CEN .TEXT{
+  display: inline-block;
+  vertical-align: middle;
+  padding-top: 30px;
+}
+.thick-border {
+  border-radius: 50%;
+  max-width: 90%;
+  max-height: 90%;
+}
+#ABOUT_CON.container {
+  background-color: #A9A9A9;
+}
+#ABOUT_HR {
+  border: 2px solid #FFFFFF;
+  width: 80%;
+}
+#PORTFOLIO_CON.container {
+  background-color: #FFFFFF;
+}
+#PORTFOLIO_CONTACT_HR {
+  border: 2px solid #808080;
+  width: 80%;
+}
+#CONTACT_CON.container {
+  background-color: #FFFFFF;
+}
+.PAGE_WEB_BRWSR_CEN {
+  height: 150px;
+  background-color: #A9A9A9;
+  text-align: center;
+  font-size: 0;
+}
+.PAGE_WEB_BRWSR_CEN:before {
+  content: "";
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+.PAGE_WEB_BRWSR_CEN .TEXT{
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 25px;
+}
+.PAGE_WEB_MOB_CEN {
+  height: 250px;
+  background-color: #A9A9A9;
+  text-align: center;
+  font-size: 0;
+}
+.PAGE_WEB_MOB_CEN:before {
+  content: "";
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+.PAGE_WEB_MOB_CEN .TEXT{
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 25px;
+}
+.BANNER_CEN {
+  height: 50px;
+  background-color:#800080;
+  text-align: center;
+  font-size: 0;
+}
+.BANNER_CEN:before {
+  content: "";
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+.BANNER_CEN .TEXT{
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 15px;
+}
+</style>
+
+<script>
+var url = location.search;
+
+if (url.indexOf("?") == -1) { // https://www.google.com.tw/search
+  if (navigator.userAgent.match(/Android|iPhone|iPad/i)) { // /i means uppercase or lowercase
+    $("#PAGE_WEB_BRWSR").remove();
+  } else {
+    $("#PAGE_WEB_MOB").remove();
+  }
+} 
+/* Not test yet */
+if (url.indexOf("?") != -1) { // https://www.google.com.tw/search?id=AD&val1=02&val2=22
+  var isWeb = false;
+  var str = url.substr(url.indexOf("?") + 1); // id=AD&val1=02&val2=22
+  var rid = str.split("&");
+  for (var i in rid) {
+    if (i.split("=")[1] == "web") {
+      isWeb = true;
+    }
+  }
+  if (!isWeb && navigator.userAgent.match(/Android|iPhone|iPad/i)) {
+    $("#PAGE_WEB_BRWSR").remove();
+  } else {
+    $("#PAGE_WEB_MOB").remove();
+  }
+}
+
+$(document).ready(function() {
+
+});
+</script>
+
+<body data-target="#navbar-spy" data-spy="scroll">
+  
+<nav id="navbar-spy" class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#" title="Chun-Jung Chang | UI/UX Design and Development">Chun-Jung Chang</a>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNav">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+    </div>
+    <div id="myNav" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="nav-item active"><a class="nav-link" href="#ABOUT">ABOUT</a></li>
+        <li class="nav-item"><a class="nav-link" href="#PORTFOLIO">PORTFOLIO</a></li>
+        <li class="nav-item"><a class="nav-link" href="#CONTACT">CONTACT</a></li>
+      </ul>
+    </div>
+  </div> <!-- /.container-fluid -->
+</nav> <!-- /.navbar-collapse -->
+
+<div class="jumbotron">
+  <div id="ABOUT_CON" class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-8 ABOUT_DIV_CEN">
+        <div class="TEXT">
+          <p id="ABOUT" style="color:#FFFFFF;"><strong>Front-End Developer and UX/UI designer, with practical experience in project management, branding strategy, and creative direction; devoted to functional programming and information architecture.</strong></p>
+          <hr id="ABOUT_HR" >
+          <p style="color:#FFFFFF;"><strong>Web Developer - User Experience Designer - Graphic Artist</strong></p>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-4">
+        <img class="img-responsive thick-border center_mar" src="http://qlip.in/images/avatar.jpg" alt="A picture of Justin looking at San Francisco from across the Golden Gate Bridge."></img>
+      </div>
+    </div>
+  </div>
+  
+  <div id="PORTFOLIO_CON" class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <p id="PORTFOLIO" align="center"><strong>PORTFOLIO</strong></p>
+        <hr id="PORTFOLIO_CONTACT_HR" align="center">
+        <div class="col-md-6">
+          <img src="http://qlip.in/images/YMCA-Realtor-Donation-3.jpg" alt=""></img>
+        </div>
+        <div class="col-md-6">
+          <img src="http://qlip.in/images/webcaballero.jpg" alt=""></img>
+        </div>
+        <div class="col-md-6">
+          <img src="http://qlip.in/images/webmarqas.jpg" alt=""></img>
+        </div>
+        <div class="col-md-6">
+          <img src="http://qlip.in/images/webbrandaxis.jpg" alt=""></img>
+        </div>
+        <div class="col-md-6">
+          <img src="http://qlip.in/images/panacea1.jpg" alt=""></img>
+        </div>
+        <div class="col-md-6">
+          <img src="http://qlip.in/images/webgatomalo.jpg" alt=""></img>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="CONTACT_CON" class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-12">
+        <p id="CONTACT" align="center"><strong>CONTACT</strong></p>
+        <hr id="PORTFOLIO_CONTACT_HR" align="center">
+      </div>
+          
+      <div class="form-group col-sm-12 col-md-6">
+        <form>
+          <div>
+            <label><font size="5">Name</font></label>
+            <input type="name" class="form-control" placeholder="Chun-Jung Chang">
+          </div>
+          <div>
+            <label for="colFormLabelSm" class="col-form-label col-form-label-sm"><font size="5">Email Address</font></label>
+            <input type="email" class="form-control form-control-sm" placeholder="XXX@yahoo.com.tw">
+          </div>
+          <div>
+            <label><font size="5">Phone Number</font></label>
+            <input type="phone" class="form-control" placeholder="09XX-XXX-XXX">
+          </div>
+          <div>
+            <label><font size="5">Message</font></label>
+            <input type="message" class="form-control" placeholder="Hello World!!">
+          </div>
+          <br>
+          <button type="submit">Send</button>
+        </form>
+      </div>
+          
+      <div class="col-sm-12 col-md-6">
+        <p id="CONTACT" align="left">Want to get in touch with me? Be it to request more info about myself or my experience, to ask for my resume, tips on how to solve your sudoku, random questions about the universe and the meaning of life, or even if only for some nice Fika here in stunning Toronto... just feel free to drop me a line anytime.</p>
+        <br>
+        <p id="CONTACT" align="left">I promise to reply A.S.A.P.</p>
+        <br>
+        <p id="CONTACT" align="left">Note: No spam/soliciting pour moi, merci :)</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="PAGE_WEB">
+<div id="PAGE_WEB_BRWSR" class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12 col-md-6 PAGE_WEB_BRWSR_CEN">
+      <div class="TEXT">
+        <p style="color:#FFFFFF;"><strong>ABOUT THIS PAGE</strong></p>
+        <p style="color:#FFFFFF;">Made with <span class="glyphicon glyphicon-globe"></span> and <span class="glyphicon glyphicon-phone"></span> by <a href=# alt="Chun-Jung Chung.in">Chun-Jung Chang</a>.</p>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6 PAGE_WEB_BRWSR_CEN">
+      <div class="TEXT">
+        <p style="color:#FFFFFF;"><strong>AROUND THE WEB</strong></p>
+        <a target="_blank" href="https://codepen.io/81YE35/"><i class="fa fa-codepen" style="font-size:36px; color:black;"></i></a>
+        <a  target="_blank" href="https://github.com/ChunJungChang/"><i class="fa fa-github" style="font-size:36px; color:black;"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="PAGE_WEB_MOB" class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 PAGE_WEB_MOB_CEN">
+      <div class="TEXT">
+        <p style="color:#FFFFFF;"><strong>ABOUT THIS PAGE</strong></p>
+        <p style="color:#FFFFFF;">Made with <span class="glyphicon glyphicon-globe"></span> and <span class="glyphicon glyphicon-phone"></span> by <a href=# alt="Chun-Jung Chung.in">Chun-Jung Chang</a>.</p>
+        <p style="color:#FFFFFF;"><strong>AROUND THE WEB</strong></p>
+        <a target="_blank" href="https://codepen.io/81YE35/"><i class="fa fa-codepen" style="font-size:36px; color:black;"></i></a>
+        <a target="_blank" href="https://github.com/ChunJungChang/"><i class="fa fa-github" style="font-size:36px; color:black;"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+</div> <!-- /.PAGE_WEB -->
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="BANNER_CEN">
+      <div class="TEXT">
+        <p style="color:#FFFFFF;" class="center_mar">Chun-Jung Chang © 2018. All Rights Reversed</p>
+      </div>
+    </div>
+  </div>
+</div>
+    
+</body>
