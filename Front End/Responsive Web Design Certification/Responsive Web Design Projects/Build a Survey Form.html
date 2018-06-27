@@ -1,0 +1,343 @@
+<!-- https://codepen.io/81YE35/full/KeGvzx/ -->
+
+<style>
+/* Pen-specific styles */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body { 
+  background-color: #0ABAB5;
+  font-size: 16px;
+}
+
+header {
+  text-align: center;
+}
+
+#survey-form {
+  width: 50%;
+  position: absolute;
+  left: 25%;
+  background-color: #FFFFFF;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 1500px) { 
+  #survey-form {
+    width: 80%;
+    left: 10%;
+  }
+}
+
+form p {
+  text-align: center;
+}
+
+.label_std {
+  display: inline-block;
+  height: 40px;
+  width: 50%;
+  line-height: 20px;
+  text-align: right;
+}
+
+.value_std {
+  display: inline-block;
+  height: 40px;
+  width: 40%;
+  line-height: 20px;
+  position: relative;
+  left: 30px;
+}
+
+@media screen and (max-width: 1500px) { 
+  .label_std {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+    text-align: left;
+  }
+  
+  .value_std {
+    display: block;
+    position: relative;
+    left: 5%;
+  }
+  
+  .label_mob_hgt {
+    height: 10px;
+  }
+  
+  .value_mob_hgt {
+    height: 20px;
+  }
+}
+
+@media screen and (max-width: 1500px) { 
+  #label_role {
+    height: auto;
+  }
+}
+
+#label_rec {
+  height: 110px;
+  line-height: 30px;
+  float: left;
+}
+
+#value_rec {
+  height: 110px;
+  line-height: 35px;
+}
+
+@media screen and (max-width: 1500px) { 
+  #label_rec {
+    height : auto;
+    float: none;
+  }
+
+  #value_rec {
+    height: 120px;
+  }
+}
+
+#label_improved {
+  height: 310px;
+  line-height: 23px;
+  float: left;
+}
+
+#value_improved {
+  height: 310px;
+  line-height: 30px;
+}
+
+@media screen and (max-width: 1500px) { 
+  #label_improved {
+    height: auto;
+    float: none;
+  }
+
+  #value_improved {
+    height: auto;
+    width: 90%;
+  }
+}
+
+#label_suggestions {
+  height: 100px;
+  line-height: 20px;
+  float: left;
+}
+
+#value_suggestions {
+  height: 100px;
+}
+
+@media screen and (max-width: 1500px) { 
+  #label_suggestions {
+    height: 40px;
+    float: none;
+  }
+
+  #value_suggestions {
+    height: 100px;
+    width: 90%;
+  }
+  
+  #suggestionsid {
+    height: 5em;
+    width: 100%;
+  }
+}
+
+.required_std::before {
+  content: "* ";
+  position: relative;
+}
+
+#submit {
+  background-color: white; 
+  border: none;
+  color: black;
+  border: 2px solid #008CBA;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 10px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+#submit:hover {
+  background-color: #008CBA;
+  color: white;
+}
+</style>
+
+<script>
+// !! IMPORTANT README:
+
+// You may add additional external JS and CSS as needed to complete the project, however the current external resource MUST remain in place for the tests to work. BABEL must also be left in place. 
+
+/***********
+INSTRUCTIONS:
+  - Select the project you would 
+    like to complete from the dropdown 
+    menu.
+  - Click the "RUN TESTS" button to
+    run the tests against the blank 
+    pen.
+  - Click the "TESTS" button to see 
+    the individual test cases. 
+    (should all be failing at first)
+  - Start coding! As you fulfill each
+    test case, you will see them go   
+    from red to green.
+  - As you start to build out your 
+    project, when tests are failing, 
+    you should get helpful errors 
+    along the way!
+    ************/
+
+// PLEASE NOTE: Adding global style rules using the * selector, or by adding rules to body {..} or html {..}, or to all elements within body or html, i.e. h1 {..}, has the potential to pollute the test suite's CSS. Try adding: * { color: red }, for a quick example!
+
+// Once you have read the above messages, you can delete all comments. 
+</script>
+
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+<!-- 
+
+Hello Camper!
+
+For now, the test suite only works in Chrome! Please read the README below in the JS Editor before beginning. Feel free to delete this message once you have read it. Good luck and Happy Coding! 
+
+- The freeCodeCamp Team 
+
+-->
+
+<header>
+  <h1 id="title"><strong>Survey Form</strong></h1>
+</header>
+
+<form id="survey-form" action="送出目的地" method="資料傳送方式">
+  <p id="description">Let us know how we can improve freeCodeCamp</p>
+  
+  <div>
+    <div class="label_std">
+      <label for="name" id="name-label" class="required_std">Name:</label>
+    </div><div class="value_std">
+      <input type="text" id="name" name="name_n" placeholder="Chun-Jung Chang" required>
+    </div>
+  </div>
+  
+  <div>
+    <div class="label_std">
+      <label for="email" id="email-label" class="required_std">Email:</label>
+    </div><div class="value_std">
+      <input type="email" id="email" name="email_n" placeholder="Chun-JungChang@google.com" required>
+    </div>
+  </div>
+  
+  <div>
+    <div class="label_std">
+      <label for="number" id="number-label" class="required_std" >Age:</label>
+    </div><div class="value_std">
+      <input type="number" id="number" name="number_n" min="1" max="150" placeholder="Age" required>
+    </div>
+  <div class="label_mob_hgt"></div>
+  </div>
+
+  <div>
+    <div id="label_role" class="label_std">
+      <label for="dropdown">Which option best describes your current role?</label>
+      <div class="label_mob_hgt"></div>
+    </div><div class="value_std">
+      <select id="dropdown" name="role_n">
+      <option value="" selected disabled>Select an option</option>
+      <option value="role_student">Student</option>
+      <option value="role_ftjob">Full Time Job</option>
+      <option value="role_ftlearner">Full Time Learner</option>
+      <option value="role_notosay">Prefer no to say</option>
+      <option value="role_other">Other</option>
+      </select>
+    </div>
+    <div class="value_mob_hgt"></div>
+  </div>
+    
+  <div>
+    <div id="label_rec" class="label_std">
+      <label class="required_std">How likely is that you would recommend freeCodeCamp to a friend?</label>
+      <div class="label_mob_hgt"></div>
+    </div><div id="value_rec" class="value_std">
+      <input id="recid_definitely" type="radio" name="rec_n" value="definitely" required>
+      <label for="recid_definitely">Definitely</label><br>
+      <input id="recid_maybe" type="radio" name="rec_n" value="maybe">
+      <label for="recid_maybe">Maybe</label><br>
+      <input id="recid_notsure" type="radio" name="rec_n" value="notsure">
+      <label for="recid_notsure">Not sure</label><br>
+    </div>
+    <div class="value_mob_hgt"></div>
+  </div>
+  
+  <div style="clear: left;"></div>
+  
+  <div>
+    <div class="label_std">
+      <label for="mostlike_dropdown">What do you like most in FCC:</label>
+    </div><div class="value_std">
+      <select id="mostlike_dropdown" name="mostlike_n">
+      <option value="" selected disabled>Select an option</option>
+      <option value="mostlike_challenges">Challenges</option>
+      <option value="mostlike_projects">Projects</option>
+      <option value="mostlike_community">Community</option>
+      <option value="mostlike_opensource">Open Source</option>
+      </select>
+    </div>
+    <div class="value_mob_hgt"></div>
+  </div>
+  
+  <div>
+    <div id="label_improved" class="label_std">
+      <label>Things that should be improved in the future(Check all that apply):</label>
+      <div class="label_mob_hgt"></div>
+    </div><div id="value_improved" class="value_std">
+      <input type="checkbox" name="improved_n" value="frontendproj">Front-end Projects<br>
+      <input type="checkbox" name="improved_n" value="backendproj">Back-end Projects<br>
+      <input type="checkbox" name="improved_n" value="datavis">Data Visualization<br>
+      <input type="checkbox" name="improved_n" value="challenges">Challenges<br>
+      <input type="checkbox" name="improved_n" value="opensourcecomm">Open Source Community<br>
+      <input type="checkbox" name="improved_n" value="videos">Videos<br>
+      <input type="checkbox" name="improved_n" value="meetups">City Meetups<br>
+      <input type="checkbox" name="improved_n" value="wiki">Wiki<br>
+      <input type="checkbox" name="improved_n" value="forum">Forum<br>
+      <input type="checkbox" name="improved_n" value="addcourses">Additional Courses<br>
+    </div>
+    <div class="value_mob_hgt"></div>
+  </div>
+  
+  <div style="clear: left;"></div>
+    
+  <div>
+    <div id="label_suggestions" class="label_std">
+      <label for="suggestions_n">Any Comments or Suggestions?</label>
+    </div><div id="value_suggestions" class="value_std">
+      <textarea id="suggestionsid" name="suggestions_n" placeholder="Enter your comment here ..." rows="5" cols="40%"></textarea>
+    </div>
+  </div>
+  
+  <div style="clear: left;"></div>
+    
+  <div align="center">
+    <input id="submit" type="submit" name="submit_n" value="Submit" >
+  </div>
+</form>
