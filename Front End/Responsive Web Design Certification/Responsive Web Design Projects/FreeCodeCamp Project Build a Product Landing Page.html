@@ -1,0 +1,365 @@
+<!-- https://codepen.io/81YE35/full/xzQLKe/ -->
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  background-color: #eee;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
+
+#header-img {
+  width: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+  header {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+}
+
+#form_container {
+  margin: 160px auto 80px;
+  text-align: center;
+}
+
+#email {
+  width: 300px;
+}
+
+#submit {
+  margin-top: 10px;
+  border-style: none;
+  background-color: #FBC02D;
+  font-weight: bold;
+}
+
+#submit:hover, .select:hover {
+  background-color: #FB8C00;
+  cursor: pointer;
+  transition: background-color 1s;
+}
+
+#feature_container {
+  width: 90%;
+  margin: 80px auto;
+}
+
+#feature_pos {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 50px;
+  grid-row-gap: 5px;
+  grid-template-areas:
+    "icon describe"
+    "icon describe"
+    "icon describe";
+}
+
+.feature_icon {
+  text-align: right;
+  margin-top: 5px;
+}
+
+.feature_describe {
+  text-align: left;
+}
+
+@media screen and (max-width: 1200px) {
+  #feature_pos {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    grid-row-gap: 5px;
+    grid-template-areas:
+      "describe"
+      "describe"
+      "describe";
+  }
+  
+  .feature_icon {
+    display: none;
+  }
+  
+  .feature_describe {
+    text-align: center;
+  }
+}
+
+p {
+  word-wrap: break-word;
+}
+
+#howitworks {
+  margin: 80px auto;
+}
+
+#howitworks iframe {
+  max-width: 560px;
+  width: 100%;
+}
+
+#trombone_container {
+  width: 60%;
+  margin: 80px auto;
+}
+
+#trombone_pos {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+@media screen and (max-width: 1200px) {
+  #trombone_pos {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.trombone_block {
+  height: 300px;
+  width: 300px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 2px;
+  text-align: center;
+}
+
+@media screen and (max-width: 1200px) {
+  #trombone_bass {
+    margin-top: 40px;
+  }
+  
+  #trombone_valve {
+    margin-top: 40px;
+  }
+}
+
+.trombone_block .trombone_title {
+    background-color: #BDBDBD;
+    height: 50px;
+    line-height: 50px;
+}
+
+.trombone_price {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.trombone_feature {
+  margin-top: 10px;
+  line-height: 35px;
+}
+
+.select {
+  border-style: none;
+  background-color: #FBC02D;
+  font-weight: bold;
+}
+
+footer {
+  width: 60%;
+  margin: 0px auto;
+  background-color: #BDBDBD;
+  padding-right: 20px;
+  text-align: right;
+}
+
+@media screen and (max-width: 1200px) {
+  footer {
+    width: 100%;
+  }
+}
+
+footer a {
+  color: black;
+}
+
+footer a:hover {
+  color: black;
+  text-decoration: none;
+}
+</style>
+
+<script>
+// !! IMPORTANT README:
+
+// You may add additional external JS and CSS as needed to complete the project, however the current external resource MUST remain in place for the tests to work. BABEL must also be left in place. 
+
+/***********
+INSTRUCTIONS:
+  - Select the project you would 
+    like to complete from the dropdown 
+    menu.
+  - Click the "RUN TESTS" button to
+    run the tests against the blank 
+    pen.
+  - Click the "TESTS" button to see 
+    the individual test cases. 
+    (should all be failing at first)
+  - Start coding! As you fulfill each
+    test case, you will see them go   
+    from red to green.
+  - As you start to build out your 
+    project, when tests are failing, 
+    you should get helpful errors 
+    along the way!
+    ************/
+
+// PLEASE NOTE: Adding global style rules using the * selector, or by adding rules to body {..} or html {..}, or to all elements within body or html, i.e. h1 {..}, has the potential to pollute the test suite's CSS. Try adding: * { color: red }, for a quick example!
+
+// Once you have read the above messages, you can delete all comments. 
+</script>
+
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+<!-- 
+
+Hello Camper!
+
+For now, the test suite only works in Chrome! Please read the README below in the JS Editor before beginning. Feel free to delete this message once you have read it. Good luck and Happy Coding! 
+
+- The freeCodeCamp Team 
+
+-->
+
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+
+<div id="content">
+
+<header id="header">
+   <img id="header-img" src="https://s3.amazonaws.com/freecodecamp/original_trombones.png" alt="original trombones logo"/>
+
+  <nav id="nav-bar" class="navbar navbar-expand-lg navbar-light sticky-top">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+      <ul class="nav navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#feature_container">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#howitworks">How It Works</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#trombone_container">Pricing</a>
+        </li>    
+      </ul>
+    </div>  
+  </nav>
+</header>
+
+<div id="form_container">
+  <div>
+    <h4>Handcrafted, home-made masterpieces</h4>
+  </div>
+  <form id="form" action="https://www.freecodecamp.com/email-submit">
+    <div>
+      <input name="email" type="email" id="email" placeholder="Enter your email address" required>
+    </div>
+    <div>
+      <input id="submit" type="submit" value="GET STARTED">
+    </div>
+  </form>
+</div>
+
+<div id="feature_container">
+  <div id="feature_pos">
+      <div class="feature_icon">
+        <i class="fa fa-3x fa-fire"></i>
+      </div>
+      <div class="feature_describe">
+        <h3>Premium Materials</h3>
+        <p>Our trombones use the shiniest brass which is sourced locally. This will increase the longevity of your purchase.</p>
+      </div>
+      <div class="feature_icon">
+        <i class="fa fa-3x fa-truck"></i>
+      </div>
+      <div class="feature_describe">
+        <h3>Fast Shipping</h3>
+        <p>We make sure you recieve your trombone as soon as we have finished making it. We also provide free returns if you are not satisfied.</p>
+      </div>
+      <div class="feature_icon">
+        <i class="fa fa-3x fa-battery-full" aria-hidden="true"></i>
+      </div>
+      <div class="feature_describe">
+        <h3>Quality Assurance</h3>
+        <p>For every purchase you make, we will ensure there are no damages or faults and we will check and test the pitch of your instrument.</p>
+      </div>
+  </div>
+</div>
+
+<div id="howitworks" align="center">
+  <iframe id="video" height="315" src="https://www.youtube-nocookie.com/embed/y8Yv4pnO7qc?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+
+<div id="trombone_container">
+  <div id="trombone_pos">
+    <div id="trombone_tenor" class="trombone_block">
+      <div class="trombone_title"><strong>TENOR TROMBONE</strong></div>
+      <div class="trombone_price"><h4>$600</h4></div>
+      <div class="trombone_feature" >
+        <p>Lorem ipsum.<br>Lorem ipsum.<br>Lorem ipsum dolor.<br>Lorem ipsum.</p>
+      </div>
+      <div>
+        <input class="select" type="submit" value="SELECT">
+      </div>
+    </div>
+    <div id="trombone_bass" class="trombone_block">
+      <div class="trombone_title"><strong>BASS TROMBONE</strong></div>
+      <div class="trombone_price"><h4>$900</h4></div>
+      <div class="trombone_feature">
+        <p>Lorem ipsum.<br>Lorem ipsum.<br>Lorem ipsum dolor.<br>Lorem ipsum.</p>
+      </div>
+      <div>
+        <input class="select" type="submit" value="SELECT">
+      </div>
+    </div>
+    <div id="trombone_valve" class="trombone_block">
+      <div class="trombone_title"><strong>VALVE TROMBONE</strong></div>
+      <div class="trombone_price"><h4>$1200</h4></div>
+      <div class="trombone_feature">
+        <p>Plays similar to a Trumpet.<br>Great for Jazz Bands.<br>Lorem ipsum dolor.<br>Lorem ipsum.</p>
+      </div>
+      <div>
+        <input class="select" type="submit" value="SELECT">
+      </div>
+    </div>
+  </div>
+</div>
+
+</div> <!-- content -->
+
+<footer>
+  <div id="footer_link">
+    <a href="https://codepen.io/81YE35/full/xzQLKe/">Privacy</a>  
+    <a href="https://codepen.io/81YE35/full/xzQLKe/">Terms</a>  
+    <a href="https://codepen.io/81YE35/full/xzQLKe/">Contact</a>
+  </div>
+  <div id="footer_copyright">
+    <span>Copyright 2016, Original Trombones</span>
+  </div>
+</footer>
