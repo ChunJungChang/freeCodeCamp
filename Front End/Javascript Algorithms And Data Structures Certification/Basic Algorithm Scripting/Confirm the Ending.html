@@ -1,0 +1,15 @@
+function confirmEnding(str, target) {
+  // "Never give up and good luck will find you."
+  // -- Falcor
+  "use strict"
+
+  let posn = str.lastIndexOf(target);
+
+  if (str.length - target.length == posn) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+confirmEnding("Bastian", "n");
