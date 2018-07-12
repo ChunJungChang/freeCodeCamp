@@ -1,0 +1,10 @@
+function bouncer(arr) {
+  // Don't show a false ID to this bouncer.
+  "use strict"
+
+  arr = arr.filter(value => !!value);
+
+  return arr;
+}
+
+bouncer([7, "ate", "", false, 9]);
