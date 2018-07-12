@@ -1,0 +1,30 @@
+function titleCase(str) {
+  "use strict"
+
+  let arr = str.split(" ");
+
+  for (let i = 0; i < arr.length; i++) {
+    let tmp = "";
+    let word = arr[i].split("");
+
+    tmp = word[0];
+    tmp = tmp.toUpperCase();
+    word.splice(0, 1, tmp);
+
+    for (let j = 1; j < word.length; j++) {
+      tmp = word[j];
+      tmp = tmp.toLowerCase();
+      word.splice(j, 1, tmp);
+    }
+    
+    arr[i] = word.join("");
+    console.log(arr[i]);
+  }
+
+  str = arr.join(" ");
+  console.log(str);
+
+  return str;
+}
+
+titleCase("I'm a little tea pot");
