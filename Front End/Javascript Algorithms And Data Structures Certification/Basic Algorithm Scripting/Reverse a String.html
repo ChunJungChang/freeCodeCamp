@@ -1,0 +1,29 @@
+function reverseString(str) {
+  "use strict"
+
+  let i = 0, j = str.length - 1;
+  let tmpi = "", tmpj = "";
+  let arr = [];
+
+  if (i >= j) {
+    return str;
+  }
+  
+  while (i < j) {
+    tmpi = str.charAt(i);
+    tmpj = str.charAt(j);
+    arr = str.split("");
+    arr.splice(i, 1, tmpj);
+    arr.splice(j, 1, tmpi);
+    str = arr.join("");
+
+    i++;
+    j--;
+  }
+
+  return str;
+}
+
+reverseString("hello");
+
+console.log(reverseString("hello"));
