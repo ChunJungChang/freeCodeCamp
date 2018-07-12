@@ -1,0 +1,29 @@
+function frankenSplice(arr1, arr2, n) {
+  // It's alive. It's alive!
+  "use strict"
+
+  let ins_len = 0;
+  let tmpf = [], tmpr = [];
+
+  tmpf = arr2.slice(0, n)
+  tmpr = arr2.slice(n, arr2.length)
+
+  tmpf.splice(tmpf.length, 0, ...arr1);
+  tmpf.splice(tmpf.length, 0, ...tmpr);
+  /*
+  for (let i = 0; i < arr1.length; i++) {
+    tmpf.splice(tmpf.length, 0, arr1[i]);
+  }
+  for (let i = 0; i < tmpr.length; i++) {
+    tmpf.splice(tmpf.length, 0, tmpr[i]);
+  }
+  */
+  /*
+  tmpf = tmpf.concat(arr1)
+  tmpf = tmpf.concat(tmpr);
+  */
+  
+  return tmpf;
+}
+
+frankenSplice([1, 2, 3], [4, 5, 6], 1);
