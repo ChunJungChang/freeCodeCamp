@@ -1,0 +1,35 @@
+function getIndexToIns(arr, num) {
+  // Find my place in this sorted array.
+  "use strict"
+
+  let posn = 0;
+
+  /* Bubble Sort */
+  for (let i = 0; i < arr.length - 1; i++) {
+    for (let j = 0 ; j < arr.length - i - 1 ; j++) {
+      if (arr[j] > arr[j + 1]) {
+        let tmp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = tmp;
+      }
+    }
+  }
+  
+  if (num < arr[0]) {
+    posn = 0;
+  } else if (arr[arr.length - 1] < num) {
+    posn = arr.length;
+  } else {
+    for (let i = 0; i < arr.length - 1; i++) {
+      if (arr[i] == num) {
+        posn = i;
+      } else if (arr[i] < num && num < arr[i + 1]) {
+        posn = i + 1;
+      }
+    }
+  }
+
+  return posn;
+}
+
+getIndexToIns([40, 60], 50);
