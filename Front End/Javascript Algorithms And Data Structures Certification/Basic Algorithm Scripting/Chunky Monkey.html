@@ -1,0 +1,32 @@
+function chunkArrayInGroups(arr, size) {
+  // Break it up.
+  "use strict"
+
+  let quo = 0;
+  let rem = 0;
+  let tmp = [];
+  let res = [];
+
+  quo = Math.floor(arr.length / size);
+  rem = arr.length % size;
+
+  for (let i = 0; i < quo * size; i += size) {
+    tmp = [];
+    for (let j = i; j < i + size; j++) {
+      tmp.push(arr[j]);
+    }
+    res.push(tmp);
+  }
+
+  if (rem != 0) {
+    tmp = [];
+    for (let i = arr.length - rem; i < arr.length; i++) {
+      tmp.push(arr[i]);
+    }
+    res.push(tmp);
+  }
+
+  return res;
+}
+
+chunkArrayInGroups(["a", "b", "c", "d"], 2);
