@@ -1,0 +1,15 @@
+function mutation(arr) {
+  "use strict"
+
+  let char_coll = arr[0].toLowerCase();
+  let str = arr[1].toLowerCase().split("");
+
+  for (let i = 0; i < str.length; i++) {
+    if (char_coll.indexOf(str[i]) == -1) {
+      return false;
+    }
+  }
+  return true;
+}
+
+mutation(["hello", "hey"]);
