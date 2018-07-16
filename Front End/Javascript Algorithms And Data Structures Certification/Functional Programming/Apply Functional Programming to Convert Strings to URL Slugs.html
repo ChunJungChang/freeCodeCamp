@@ -1,0 +1,38 @@
+// the global variable
+var globalTitle = "Winter Is Coming";
+
+// Add your code below this line
+function urlSlug(title) {
+  let reg = /[^A-Za-z]/;
+  let tmp = [], cov = [], res = [];
+  
+  tmp = title.toLowerCase();
+  tmp = tmp.trim();
+
+  for (let i = 0; i < tmp.length; i++) {
+    if (reg.test(tmp[i])) {
+      cov.push("-");
+    } else {
+      cov.push(tmp[i]);
+    }
+  }
+
+  for (let i = 0; i < cov.length; i++) {
+    if (cov[i] == "-") {
+      let j = i + 1;
+      while (cov[j] == "-") {
+        j++;
+      }
+      console.log("i: " + i + ",j: " + j);
+      if (j - i > 1) {
+        cov.splice(i, j - i - 1);
+      }
+    }
+  }
+
+  res = cov.join("");
+  return res;
+}
+// Add your code above this line
+
+var winterComing = urlSlug(globalTitle); // Should be "winter-is-coming"
