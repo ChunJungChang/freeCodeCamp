@@ -3,6 +3,7 @@ var globalTitle = "Winter Is Coming";
 
 // Add your code below this line
 function urlSlug(title) {
+  /*
   let reg = /[^A-Za-z]/;
   let tmp = [], cov = [], res = [];
   
@@ -23,7 +24,6 @@ function urlSlug(title) {
       while (cov[j] == "-") {
         j++;
       }
-      console.log("i: " + i + ",j: " + j);
       if (j - i > 1) {
         cov.splice(i, j - i - 1);
       }
@@ -32,6 +32,8 @@ function urlSlug(title) {
 
   res = cov.join("");
   return res;
+  */
+  return title.toLowerCase().split(/\W+/).filter(item => item != "").join("-");
 }
 // Add your code above this line
 
