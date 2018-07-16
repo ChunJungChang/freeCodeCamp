@@ -4,11 +4,19 @@ var s = [23, 65, 98, 5];
 Array.prototype.myMap = function(callback){
   var newArray = [];
   // Add your code below this line
+  /*
   let arr = this;
   
   for (let i = 0; i < arr.length; i++) {
     newArray.push(callback(arr[i]));
   }
+  */
+  let arr = this;
+  
+  arr.forEach(function (value) {
+    newArray.push(callback(value));
+  });
+  console.log(newArray);
   // Add your code above this line
   return newArray;
 
