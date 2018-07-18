@@ -1,9 +1,10 @@
 <style type='text/sass'>
-  
+  /**
+    * The #{$i} part is the syntax to combine a variable (i) with text to make a string.
+    */
   @for $j from 1 through 5 {
     .text-#{$j} { font-size: $j * 10px; }
   }
-  
 </style>
 
 <p class="text-1">Hello</p>
