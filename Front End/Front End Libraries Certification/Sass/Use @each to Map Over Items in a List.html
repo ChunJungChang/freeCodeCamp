@@ -1,6 +1,10 @@
 <style type='text/sass'>
   $colors: (color1: blue, color2: black, color3: red);
   
+  /**
+    * Note that the $key variable is needed to reference the keys in the map. 
+    * Otherwise, the compiled CSS would have color1, color2... in it.
+    */
   @each $key, $color in $colors {
     .#{$color}-bg {background-color: $color;}
   }
