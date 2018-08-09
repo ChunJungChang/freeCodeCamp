@@ -1,0 +1,368 @@
+<!-- https://codepen.io/81YE35/full/ajpeab/ -->
+
+<style>
+body {
+  height: 100%;
+}
+
+.jumbotron {
+  // height: 100vw;
+  background-image: url("https://dl.dropbox.com/s/t5e04i3crq1nijv/jumbotron_bg.jpg?dl=0");
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: #FFFFFF;
+  text-align: center;
+}
+.jumbotron > .container {
+  padding-top: 10px;
+}
+
+#ABOUT, #PORTFOLIO, #CONTACT {
+  font-size: 48px;
+}
+#ABOUT_PORTFOLIO_CONTACT_HR {
+  border: 2px solid #808080;
+  width: 80%;
+}
+.ABOUT_DIV_CEN {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+@media screen and (max-width: 991px) {
+  .ABOUT_DIV_CEN {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.ABOUT_TEXT_CEN {
+  text-align: center;
+}
+#ABOUT_INTRO, #ABOUT_SKILL {
+  line-height: 25px;
+  font-size: 18px;
+}
+@media screen and (max-width: 991px) {
+  #ABOUT_INTRO, #ABOUT_SKILL {
+    font-size: 14px;
+    //word-break: break-all;
+  }
+}
+.thick-border {
+  border-radius: 100%;
+  max-width: 90%;
+  max-height: 90%;
+}
+@media screen and (max-width: 991px) {
+  .ABOUT_Profile_Pic_MOB {
+    display: flex;
+    justify-content: center;
+  }
+  .img-responsive {
+    height: 80%;
+    width: 80%;
+  }
+}
+#ABOUT_SEP_HR {
+  border: 2px solid #000000;
+  width: 80%;
+}
+
+#PORTFOLIO_CON, #CONTACT_CON, #PAGE_WEB_CON {
+  margin-top: 30px
+}
+.PORTFOLIO_BRWSR_ALIGN {
+  margin-top: 15px;
+}
+@media screen and (max-width: 991px) {
+  .PORTFOLIO_BRWSR_ALIGN {
+    margin-top: 0px;
+  }
+}
+
+#CONTACT_FORM_GRID {
+  display: grid;
+  grid-template-columns: 0.1fr 0.9fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "label_name value_name"
+    "label_email value_email"
+    "label_msg value_msg"
+    ". btn_submit";
+  grid-column-gap: 10px;
+  grid-row-gap: 15px;
+}
+.CONTACT_FORM_LABEL {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+  font-size: 1.5em;
+}
+.CONTACT_FORM_VALUE > input, textarea {
+  height: 100%;
+  width: 80%;
+  font-size: 18px;
+}
+@media screen and (max-width: 991px) {
+  .CONTACT_FORM_VALUE > input, textarea {
+    width: 100%;
+  }
+}
+#CONTACT_FORM_BTN {
+  grid-area: btn_submit;
+  padding-left: 30%;
+}
+@media screen and (max-width: 991px) {
+  #CONTACT_FORM_BTN {
+    padding-left: 40%;
+  }
+}
+#submit {
+  width:70px;
+  height:30px;
+  background-color: #222;
+  border: none;
+  color: #9E9E9E;
+  font-size: 18px;
+}
+#submit:hover {
+  background-color: #212121;
+  color: white;
+}
+#CONTACT_DESCR {
+  margin-top: 20px;
+  font-size: 18px;
+  text-align: left;
+}
+@media screen and (max-width: 991px) {
+  #CONTACT_DESCR {
+    text-align: center;
+  }
+}
+
+.PAGE_WEB_DIV {
+  height: 100px;
+  background-color: #9E9E9E;
+}
+@media screen and (max-width: 991px) {
+  .PAGE_WEB_DIV {
+    height: 200%;
+  }
+}
+.PAGE_WEB_DIV_CEN {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FFFFFF;
+  font-size: 2em;
+}
+@media screen and (max-width: 991px) {
+  .PAGE_WEB_DIV_CEN {
+    height: 50%;
+  }
+}
+
+/* The style of footer is like navbar */
+footer {
+  height: 50px;
+  width: 100%;
+  background-color: #222;
+  color: #9E9E9E;
+}
+footer div {
+  text-align: center;
+  line-height: 50px;
+  font-size: 14px;
+}
+</style>
+
+<script>
+var url = location.search;
+
+if (url.indexOf("?") == -1) { // https://www.google.com.tw/search
+  if (navigator.userAgent.match(/Android|iPhone|iPad/i)) { // /i means uppercase or lowercase
+    $("#PAGE_WEB_BRWSR").remove();
+  } else {
+    $("#PAGE_WEB_MOB").remove();
+  }
+} 
+/* Not test yet */
+if (url.indexOf("?") != -1) { // https://www.google.com.tw/search?id=AD&val1=02&val2=22
+  var isWeb = false;
+  var str = url.substr(url.indexOf("?") + 1); // id=AD&val1=02&val2=22
+  var rid = str.split("&");
+  for (var i in rid) {
+    if (i.split("=")[1] == "web") {
+      isWeb = true;
+    }
+  }
+  if (!isWeb && navigator.userAgent.match(/Android|iPhone|iPad/i)) {
+    $("#PAGE_WEB_BRWSR").remove();
+  } else {
+    $("#PAGE_WEB_MOB").remove();
+  }
+}
+
+$(document).ready(function() {
+
+});
+</script>
+
+<body data-target="#navbar-spy" data-spy="scroll">
+
+<nav id="navbar-spy" class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#" title="Linus Kernel | UI/UX Design">Chun-Jung Chang</a>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNav">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+    </div>
+    <div id="myNav" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="nav-item"><a class="nav-link" href="#ABOUT">ABOUT</a></li>
+        <li class="nav-item"><a class="nav-link" href="#PORTFOLIO">PORTFOLIO</a></li>
+        <li class="nav-item"><a class="nav-link" href="#CONTACT">CONTACT</a></li>
+      </ul>
+    </div>
+  </div> <!-- ./container-fluid -->
+</nav> <!-- ./navbar -->
+  
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1>Welcome to My Resume and Portfolio WebPage</h1>
+    <a href="#ABOUT" class="btn btn-info active"> 
+      <span class="glyphicon glyphicon-menu-down"></span>
+    </a>
+  </div>
+</div>
+
+<div id="ABOUT_CON" class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <p id="ABOUT" align="center"><strong>ABOUT ME</strong></p>
+      <hr id="ABOUT_PORTFOLIO_CONTACT_HR" align="center">
+    </div>
+  </div> <!-- ./row -->
+  <div class="row ABOUT_DIV_CEN">
+    <div class="col-sm-12 col-md-offset-2 col-md-5 ABOUT_TEXT_CEN">
+      <p id="ABOUT_INTRO" style="color:#000000;">My name is Chun-jung Chang. I graduated from National Cheng Kung University, where I studied Computer Science and Information Engineering. My first job is a software and driver engineer in QNAP Systems, Inc. I am responsible for iSCSI protocol, from which you will be able to access to a remote disk just like what you do on a local disk. In my spare time, I love learning about new things or technologies. This website shows what I learn to build a front-end website.</p>
+      <hr id="ABOUT_SEP_HR" >
+      <p id="ABOUT_SKILL" style="color:#000000;">#Linux Kernel&nbsp;&nbsp;&nbsp;#C&nbsp;&nbsp;&nbsp;#Makefile&nbsp;&nbsp;&nbsp;#Shellscript&nbsp;&nbsp;&nbsp;#Front-End&nbsp;&nbsp;&nbsp;#Html&nbsp;&nbsp;&nbsp;#CSS&nbsp;&nbsp;&nbsp;#Javascript</p>
+    </div>
+    <div class="col-sm-12 col-md-offset-1 col-md-2 ABOUT_Profile_Pic_MOB">
+      <img class="img-responsive thick-border" src="https://dl.dropbox.com/s/xqhx8w04u5osuw3/Profile_Pic.jpg?dl=0" alt="The location of this Pic is in Dropbox."></img>
+    </div>
+  </div> <!-- ./row -->
+</div> <!-- ./container-fluid -->
+  
+<div id="PORTFOLIO_CON" class="container-fluid">
+  <div class="row">
+    <div class="col-md-12" >
+      <p id="PORTFOLIO" align="center"><strong>PORTFOLIO</strong></p>
+      <hr id="ABOUT_PORTFOLIO_CONTACT_HR" align="center">
+    </div>
+    <div class="col-sm-12 col-md-offset-2 col-md-4">
+      <p data-height="265" data-theme-id="0" data-slug-hash="aqaePd" data-default-tab="result" data-user="81YE35" data-embed-version="2" data-pen-title="FreeCodeCamp Project Build a Tribute Page" class="codepen">See the Pen <a href="https://codepen.io/81YE35/pen/aqaePd/">FreeCodeCamp Project Build a Tribute Page</a> by Chun Jung Chang (<a href="https://codepen.io/81YE35">@81YE35</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+    </div>
+    <div class="col-sm-12 col-md-4">
+      <p data-height="265" data-theme-id="0" data-slug-hash="dKQzXo" data-default-tab="result" data-user="81YE35" data-embed-version="2" data-pen-title="FreeCodeCamp Project Build a Survey Form" class="codepen">See the Pen <a href="https://codepen.io/81YE35/pen/dKQzXo/">FreeCodeCamp Project Build a Survey Form</a> by Chun Jung Chang (<a href="https://codepen.io/81YE35">@81YE35</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+    </div>
+    <div class="col-sm-12 col-md-offset-2 col-md-4 PORTFOLIO_BRWSR_ALIGN">
+      <p data-height="265" data-theme-id="0" data-slug-hash="xzQLKe" data-default-tab="result" data-user="81YE35" data-embed-version="2" data-pen-title="FreeCodeCamp Project Build a Product Landing Page" class="codepen">See the Pen <a href="https://codepen.io/81YE35/pen/xzQLKe/">FreeCodeCamp Project Build a Product Landing Page</a> by Chun Jung Chang (<a href="https://codepen.io/81YE35">@81YE35</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+    </div>
+    <div class="col-sm-12 col-md-4 PORTFOLIO_BRWSR_ALIGN">
+      <p data-height="265" data-theme-id="0" data-slug-hash="geaYvW" data-default-tab="result" data-user="81YE35" data-embed-version="2" data-pen-title="FreeCodeCamp Project Build a Personal Portfolio Webpage" class="codepen">See the Pen <a href="https://codepen.io/81YE35/pen/geaYvW/">FreeCodeCamp Project Build a Personal Portfolio Webpage</a> by Chun Jung Chang (<a href="https://codepen.io/81YE35">@81YE35</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+    </div>
+  </div> <!-- ./row -->
+</div> <!-- container-fluid -->
+
+<div id="CONTACT_CON" class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+      <p id="CONTACT" align="center"><strong>CONTACT</strong></p>
+      <hr id="ABOUT_PORTFOLIO_CONTACT_HR" align="center">
+    </div>
+    
+    <div class="col-sm-12 col-md-offset-2 col-md-4">
+      <form id="CONTACT_FORM" method="POST" action="https://formspree.io/ye35@yahoo.com.tw">  
+        <div id="CONTACT_FORM_GRID">
+          <div class="CONTACT_FORM_LABEL">
+            <label for="name"><span class="glyphicon glyphicon-user"></span></label>
+          </div>
+          <div class="CONTACT_FORM_VALUE">
+            <input type="text" id="name" name="name" placeholder=" Mr. or Mrs." required>
+          </div>
+          
+          <div class="CONTACT_FORM_LABEL">
+            <label for="email"><span class="glyphicon glyphicon-envelope"></span></label>
+          </div>
+          <div class="CONTACT_FORM_VALUE">
+            <input type="email" id="email" name="_replyto" placeholder=" Your E-mail" required>
+          </div>
+          
+          <div class="CONTACT_FORM_LABEL">
+            <label for="message"><span class="glyphicon glyphicon-pencil"></span></label>
+          </div>
+          <div class="CONTACT_FORM_VALUE">
+            <textarea id="message" name="message" rows="5" placeholder=" Enter your comment here ..." required></textarea>
+          </div>
+          
+          <div id="CONTACT_FORM_BTN">
+            <input id="submit" type="submit" value="Send">
+          </div>
+        </div> <!-- ./CONTACT_FORM_GRID -->
+      </form>
+    </div>
+          
+    <div class="col-sm-12 col-md-4">
+      <div id="CONTACT_DESCR">
+        <p>Want to get in touch with me? Be it to request more info about myself or my experience, to ask for my resume just feel free to drop me a line anytime.</p>
+        <br>
+        <p>I promise to reply A.S.A.P.</p>
+        <br>
+        <p>Note: No spam/soliciting pour moi, merci :)</p>
+      </div>
+    </div>
+  </div> <!-- ./row -->
+</div> <!-- ./container-fluid -->
+
+<div id="PAGE_WEB_CON" class="container-fluid">
+  <div class="row PAGE_WEB_DIV">
+    <div class="col-sm-12 col-md-6 PAGE_WEB_DIV_CEN">
+      <div style="text-align:center;">
+        <p><strong>ABOUT THIS PAGE</strong></p>
+        <p>Made with <span class="glyphicon glyphicon-globe"></span> and <span class="glyphicon glyphicon-phone"></span> by <a href=# alt="Chun-Jung Chung.in">Chun-Jung Chang</a>.</p>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6 PAGE_WEB_DIV_CEN">
+      <div style="text-align:center;">
+        <p><strong>AROUND THE WEB</strong></p>
+        <a target="_blank" href="https://codepen.io/81YE35/"><i class="fa fa-codepen" style="font-size:36px; color:black;"></i></a>
+        <a  target="_blank" href="https://github.com/ChunJungChang/"><i class="fa fa-github" style="font-size:36px; color:black;"></i></a>
+        <a  target="_blank" href="www.linkedin.com/in/ChunJungChang-31739416"><i class="fa fa-linkedin" style="font-size:36px; color:black;"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- There is a bug over here -->
+<footer>
+  <div>
+    <p>Chun-Jung Chang © 2018. All Rights Reversed</p>
+  </div>
+</footer>
+
+</body>
